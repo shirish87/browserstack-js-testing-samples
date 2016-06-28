@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/bundle.js"></script>
+    <script>
+      var createHistory = History.createHistory
+      var useBeforeUnload = History.useBeforeUnload
+
+      var page = 0
+      var h = useBeforeUnload(createHistory)()
+
+      h.listenBeforeUnload(function () {
+        return "Wait, don't leave yet!"
+      })
+
+      h.listenBefore(function (location, callback) {
+        var promptMessage = 'Are you sure you want to go to ' + location.pathname + '?'
+
+        if (Math.random() > 0.5) {
+          callback(promptMessage) // sync
+        } else {
+          setTimeout(function () {
+            callback(promptMessage) // async
+          }, 500)
+        }
+      })
+
+      h.listen(function (location) {
+        console.log(location)
+      })
+    </script>
+  </head>
+  <body>
+    <p>Use the two buttons below to test normal transitions.</p>
+    <p>
+      <button onclick="page++; h.pushState({ page: page }, '/' + page)">history.pushState</button>
+      <button onclick="h.goBack()">history.goBack</button>
+    </p>
+    <p>Close the tab to test <code>beforeunload</code> behavior.</p>
+  </body>
+</html>
