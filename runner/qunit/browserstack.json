@@ -1,0 +1,34 @@
+{
+    "username": "BROWSERSTACK_USERNAME",
+    "key": "BROWSERSTACK_KEY",
+    "test_framework": "qunit",
+    "test_path": [
+        "test/autostart.html",
+        "test/headless.html",
+        "test/index.html",
+        "test/logs.html",
+        "test/only.html",
+        "test/regex-exclude-filter.html",
+        "test/regex-filter.html",
+        "test/reorderError1.html",
+        "test/reorderError2.html",
+        "test/setTimeout.html",
+        "test/stack-errors.html",
+        "test/startError.html",
+        "test/string-filter.html"
+    ],
+    "browsers": [
+        {
+            "browser": "ie",
+            "browser_version": "11.0",
+            "os": "Windows",
+            "os_version": "10"
+        },
+        {
+            "browser": "edge",
+            "browser_version": "latest",
+            "os": "Windows",
+            "os_version": "10"
+        }
+    ]
+}

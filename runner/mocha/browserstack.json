@@ -1,0 +1,22 @@
+{
+    "username": "BROWSERSTACK_USERNAME",
+    "key": "BROWSERSTACK_KEY",
+    "test_framework": "mocha",
+    "test_path": [
+        "test/browser/index.html"
+    ],
+    "browsers": [
+        {
+            "browser": "ie",
+            "browser_version": "11.0",
+            "os": "Windows",
+            "os_version": "10"
+        },
+        {
+            "browser": "edge",
+            "browser_version": "latest",
+            "os": "Windows",
+            "os_version": "10"
+        }
+    ]
+}
