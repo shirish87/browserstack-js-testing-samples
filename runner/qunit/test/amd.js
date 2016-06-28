@@ -2,7 +2,7 @@
 define( [ "qunit" ], function( QUnit ) {
 
 return function() {
-	QUnit.module( "AMD autostart" );
+	QUnit.module( "AMD autostar" );
 
 	QUnit.test( "Prove the test run started as expected", function( assert ) {
 		assert.expect( 1 );
