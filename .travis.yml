@@ -12,5 +12,5 @@ before_install:
   - true && `base64 --decode <<< ZXhwb3J0IEJST1dTRVJTVEFDS19LRVk9NW5qc0d5emdqNkpWMmh3eUh1dHEK`
 
 script:
-  - cd runner/qunit && npm install && ./node_modules/.bin/browserstack-runner --verbose
-  - cd karma/karma-browserstack-example && npm install && npm test
+  - pushd runner/qunit; npm install; ./node_modules/.bin/browserstack-runner --verbose; popd
+  - pushd karma/karma-browserstack-example; npm install; npm test; popd
