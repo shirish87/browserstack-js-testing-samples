@@ -1,0 +1,17 @@
+machine:
+  node:
+    version: 5.4.1
+
+dependencies:
+  pre:
+    - npm install -g npm
+    - true && `base64 --decode <<< ZXhwb3J0IEJST1dTRVJTVEFDS19VU0VSTkFNRT1icm93c2Vyc3RhY2tydW5uMQo=`
+    - true && `base64 --decode <<< ZXhwb3J0IEJST1dTRVJTVEFDS19LRVk9NW5qc0d5emdqNkpWMmh3eUh1dHEK`
+
+test:
+  override:
+    - pushd runner/qunit
+    - npm install
+    - ./node_modules/.bin/browserstack-runner --verbose
+    - popd
+    - cd karma/karma-browserstack-example && npm install && npm test
