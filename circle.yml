@@ -10,8 +10,5 @@ dependencies:
 
 test:
   override:
-    - pushd runner/qunit
-    - npm install
-    - ./node_modules/.bin/browserstack-runner --verbose
-    - popd
+    - cd runner/qunit && npm install && ./node_modules/.bin/browserstack-runner --verbose
     - cd karma/karma-browserstack-example && npm install && npm test
