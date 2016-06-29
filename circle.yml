@@ -2,16 +2,11 @@ machine:
   node:
     version: 5.4.1
 
-dependencies:
-  post:
-    - wget http://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
-    - unzip BrowserStackLocal-linux-x64.zip
-
 test:
   override:
-    - ./BrowserStackLocal $BROWSERSTACK_KEY -d start -localIdentifier 123
+    - ./run_local.bash -localIdentifier 123
     - pushd runner/qunit; npm install; ./node_modules/.bin/browserstack-runner --verbose; popd
     - pushd karma/karma-browserstack-example; npm install; npm test; popd
   post:
-    - ./BrowserStackLocal -d stop
+    - killall -15 BrowserStackLocal
 
